@@ -1,24 +1,27 @@
 // @flow
 
-import React, {Component} from 'react';
-import {Text, TextInput, StyleSheet, View, Button} from 'react-native';
-
+import React from 'react';
+import {Text, StyleSheet, View} from 'react-native';
 
 const ChatListItem = ({
-                        userName,
-                        messageText,
-                        messageTime
-                      }:{userName: string, messageText: string, messageTime: string}) => {
+  userName,
+  messageText,
+  messageTime,
+}: {
+  userName: string,
+  messageText: string,
+  messageTime: string,
+}) => {
   return (
     <View style={styles.ChatListItem}>
-      <View style={styles.UserImage}/>
+      <View style={styles.UserImage} />
       <View>
         <Text style={styles.BoldText}>{userName}</Text>
         <Text>{messageText}</Text>
       </View>
       <Text style={styles.Time}>{messageTime}</Text>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
     height: 54,
     borderWidth: 1,
     marginRight: 20,
-    borderColor: '#0000d0'
+    borderColor: '#0000d0',
   },
 
   BoldText: {
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: '#fff',
     borderRadius: 4,
-    marginBottom: 10
+    marginBottom: 10,
   },
 
   Time: {
@@ -50,8 +53,8 @@ const styles = StyleSheet.create({
     color: '#909090',
     fontSize: 12,
     top: 15,
-    right: 15
-  }
+    right: 15,
+  },
 });
 
 export default ChatListItem;

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet, FlatList} from 'react-native';
 import {connect} from 'react-redux';
-import {fetchUsers} from '../../../../actions/fetchUsers'
-import {fetchChats} from '../../../../actions/fetchChats'
+import {fetchUsers} from '../../../../actions/fetchUsers';
+import {fetchChats} from '../../../../actions/fetchChats';
 
 class ChatList extends Component {
-
   componentDidMount() {
     this.props.fetchUsers();
     this.props.fetchChats();
@@ -16,14 +15,18 @@ class ChatList extends Component {
     return (
       <TouchableOpacity
         onPress={() => {
-          navigate('PersonalChatScreen',
-            {chatId: item.chatId, chatName: item.chatWith, userName: this.props.users.name})
-        }} style={styles.ChatListItem
-      }
-      >
+          navigate('PersonalChatScreen', {
+            chatId: item.chatId,
+            chatName: item.chatWith,
+            userName: this.props.users.name,
+          });
+        }}
+        style={styles.ChatListItem}>
         <View style={styles.UserImage}>
-          <Text style={styles.UserNameInitials}>{item.chatWith.slice(0, 2)}</Text>
-          {item.isOnline && <View style={styles.OnlineStatus}/>}
+          <Text style={styles.UserNameInitials}>
+            {item.chatWith.slice(0, 2)}
+          </Text>
+          {item.isOnline && <View style={styles.OnlineStatus} />}
         </View>
         <View>
           <Text style={styles.BoldText}>{item.chatWith}</Text>
@@ -46,7 +49,7 @@ class ChatList extends Component {
           keyExtractor={keyExtractor}
         />
       </View>
-    )
+    );
   }
 }
 
@@ -54,22 +57,19 @@ const mapStateToProps = state => {
   return {
     users: state.usersReducer.users,
     chats: state.chatsReducer.chats,
-  }
+  };
 };
 
 const mapDispatchToProps = {
   fetchUsers,
-  fetchChats
+  fetchChats,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ChatList)
+export default connect(mapStateToProps, mapDispatchToProps)(ChatList);
 
 const styles = StyleSheet.create({
   PurpleView: {
-    backgroundColor: '#c5c1dd'
+    backgroundColor: '#c5c1dd',
   },
 
   UserImage: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginRight: 20,
     justifyContent: 'center',
-    backgroundColor: '#43266e'
+    backgroundColor: '#43266e',
   },
 
   BoldText: {
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     color: '#909090',
     fontSize: 12,
     top: 15,
-    right: 15
+    right: 15,
   },
 
   OnlineStatus: {
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 1,
     borderRadius: 16,
-    right: -1
+    right: -1,
   },
 
   UserNameInitials: {
@@ -125,6 +125,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.5,
     color: '#fff',
-    textTransform: 'uppercase'
-  }
+    textTransform: 'uppercase',
+  },
 });

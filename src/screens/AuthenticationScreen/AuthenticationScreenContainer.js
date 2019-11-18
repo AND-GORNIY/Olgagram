@@ -2,10 +2,9 @@
 
 import React, {Component} from 'react';
 import {NavigationState, NavigationScreenProp} from 'react-navigation';
-import AuthenticationScreen from "./AuthenticationScreen";
+import AuthenticationScreen from './AuthenticationScreen';
 import {connect} from 'react-redux';
-import {authenticate} from "../../actions/authenticate";
-import ChatsListScreen from "../ChatsListScreen";
+import {authenticate} from '../../actions/authenticate';
 
 type Props = {
   navigation: NavigationScreenProp<NavigationState>,
@@ -18,7 +17,7 @@ type Props = {
 type State = {
   phoneNumber: string,
   password: string,
-}
+};
 
 class AuthenticationScreenContainer extends Component<Props, State> {
   state = {
@@ -32,7 +31,7 @@ class AuthenticationScreenContainer extends Component<Props, State> {
     const value = event.nativeEvent.text;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -42,13 +41,14 @@ class AuthenticationScreenContainer extends Component<Props, State> {
 
     authenticate(phoneNumber, password);
 
-    if (phoneNumber.length > 3 && password.length > 3) this.handleNavigation()
+    if (phoneNumber.length > 3 && password.length > 3) {
+      this.handleNavigation();
+    }
   };
 
   handleNavigation = () => {
     const {navigate} = this.props.navigation;
-    // console.log('navigate')
-    navigate('ChatsListScreen')
+    navigate('ChatsListScreen');
   };
 
   render() {
@@ -67,16 +67,18 @@ class AuthenticationScreenContainer extends Component<Props, State> {
 const mapStateToProps = state => {
   return {
     isLoading: state.authenticationReducer.isLoading,
-    isAuthenticationFailed: state.authenticationReducer.requestStatus === 'failure',
-    isAuthenticationSucceed: state.authenticationReducer.requestStatus === 'success',
-  }
+    isAuthenticationFailed:
+      state.authenticationReducer.requestStatus === 'failure',
+    isAuthenticationSucceed:
+      state.authenticationReducer.requestStatus === 'success',
+  };
 };
 
 const mapDispatchToProps = {
-  authenticate
+  authenticate,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(AuthenticationScreenContainer)
+  mapDispatchToProps,
+)(AuthenticationScreenContainer);

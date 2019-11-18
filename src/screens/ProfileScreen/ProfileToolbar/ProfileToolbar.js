@@ -1,16 +1,14 @@
 import React from 'react';
-import {TouchableOpacity, Image, StyleSheet, Text, View} from 'react-native';
-
-import editIcon from '../../../img/edit.svg';
+import {TouchableOpacity, Image, StyleSheet, View} from 'react-native';
 
 const ProfileToolbar = ({onProfileDataEdit}) => {
   return (
     <View style={styles.Toolbar}>
       <TouchableOpacity onPress={onProfileDataEdit}>
-         <Image style={styles.Edit} source={require('../../../img/edit.png')} />
+        <Image style={styles.Edit} source={require('../../../img/edit.png')} />
       </TouchableOpacity>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -19,13 +17,13 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     paddingLeft: 15,
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
 
   Edit: {
     width: 32,
     height: 32,
-  }
+  },
 });
 
 export default ProfileToolbar;

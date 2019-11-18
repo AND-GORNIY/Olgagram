@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-import ThemeToggler from "./ThemeToggler";
-import PrivacySettings from "./PrivacySettings";
+import ThemeToggler from './ThemeToggler';
+import PrivacySettings from './PrivacySettings';
 
 const ProfileOptions = () => {
   return (
@@ -16,7 +16,7 @@ const ProfileOptions = () => {
         <PrivacySettings />
       </View>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -27,19 +27,19 @@ const styles = StyleSheet.create({
     padding: 12,
     paddingLeft: 20,
     paddingRight: 20,
-    borderColor: "#cecece",
+    borderColor: '#cecece',
     borderTopWidth: 1,
   },
 
   ProfileOptions: {
     marginTop: 32,
-    borderColor: "#cecece",
+    borderColor: '#cecece',
     borderBottomWidth: 1,
   },
 
   ProfileOptionText: {
     fontSize: 16,
-  }
+  },
 });
 
 export default ProfileOptions;

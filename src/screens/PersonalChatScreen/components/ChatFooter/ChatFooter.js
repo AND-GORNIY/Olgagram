@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Image, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  TextInput,
+} from 'react-native';
 const ChatFooter = ({onMessageInput, messageText, onMessageSend}) => {
   return (
     <View style={styles.Footer}>
@@ -10,17 +17,17 @@ const ChatFooter = ({onMessageInput, messageText, onMessageSend}) => {
         style={styles.MessageInput}
         value={messageText}
         multiline={true}
-        onChangeText={(value) => onMessageInput(value)}
+        onChangeText={value => onMessageInput(value)}
         placeHolder={'Message'}
       />
       <TouchableOpacity onPress={onMessageSend} style={{width: 24, height: 24}}>
         <Image
-          source={require("../../assets/paper-plane.png")}
+          source={require('../../assets/paper-plane.png')}
           style={{width: 24, height: 24}}
         />
       </TouchableOpacity>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -29,7 +36,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     alignItems: 'center',
     paddingLeft: 20,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 
   MessageInput: {
@@ -38,8 +45,8 @@ const styles = StyleSheet.create({
     width: '75%',
     borderRadius: 8,
     padding: 10,
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });
 
 export default ChatFooter;

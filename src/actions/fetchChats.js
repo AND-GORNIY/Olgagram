@@ -10,7 +10,7 @@ export const fetchChats = () => (dispatch, getState) => {
     .then(({chats}) => {
       dispatch({
         type: 'FETCH_CHATS_SUCCESS',
-        chats: chats
+        chats: chats,
       });
     })
     .catch(err => {

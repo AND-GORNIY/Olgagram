@@ -8,18 +8,18 @@ import ProfileOptions from './ProfileOptions';
 type Props = {};
 
 type State = {
-  isEditable: boolean
-}
+  isEditable: boolean,
+};
 
 class ProfileScreen extends Component<Props, State> {
   state = {
-    isEditable: false
+    isEditable: false,
   };
 
   handleProfileDataEdit = (): void => {
     this.setState({
       isEditable: true,
-    })
+    });
   };
 
   render() {
@@ -27,15 +27,11 @@ class ProfileScreen extends Component<Props, State> {
 
     return (
       <>
-      <ProfileToolbar
-        onProfileDataEdit={this.handleProfileDataEdit}
-      />
-      <ProfileData
-        isEditable={isEditable}
-      />
-      <ProfileOptions />
+        <ProfileToolbar onProfileDataEdit={this.handleProfileDataEdit} />
+        <ProfileData isEditable={isEditable} />
+        <ProfileOptions />
       </>
-    )
+    );
   }
 }
 

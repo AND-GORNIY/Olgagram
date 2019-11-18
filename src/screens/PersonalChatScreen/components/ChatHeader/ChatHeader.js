@@ -6,7 +6,7 @@ const ChatHeader = ({chatName}) => {
     <View style={styles.Header}>
       <Text style={styles.UserName}>{chatName}</Text>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#b3b3b3',
     marginBottom: 20,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   UserName: {
     fontWeight: 'bold',
-    fontSize: 18
-  }
+    fontSize: 18,
+  },
 });
 
 export default ChatHeader;

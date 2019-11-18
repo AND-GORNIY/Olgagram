@@ -1,18 +1,41 @@
 // @flow
 
 import React from 'react';
-import {Text, Image, ActivityIndicator, TouchableOpacity, TextInput, StyleSheet, View, Button} from 'react-native';
+import {
+  Text,
+  Image,
+  ActivityIndicator,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+  View,
+} from 'react-native';
 
-
-const AuthenticationScreen = ({isAuthenticationFailed, onAuthenticationInputChange, onAuthenticationSubmit, isLoading}: {
-  isLoading: boolean, isAuthenticationFailed: boolean, onAuthenticationInputChange: (name: string) => (event: SyntheticEvent<HTMLInputElement>,) => void, onAuthenticationSubmit: () => void
+const AuthenticationScreen = ({
+  isAuthenticationFailed,
+  onAuthenticationInputChange,
+  onAuthenticationSubmit,
+  isLoading,
+}: {
+  isLoading: boolean,
+  isAuthenticationFailed: boolean,
+  onAuthenticationInputChange: (
+    name: string,
+  ) => (event: SyntheticEvent<HTMLInputElement>) => void,
+  onAuthenticationSubmit: () => void,
 }) => {
   return (
     <View style={styles.View}>
-      <Text style={styles.Title}>Welcome to <Text style={styles.PurpleTitle}>Olgagram!</Text></Text>
+      <Text style={styles.Title}>
+        Welcome to <Text style={styles.PurpleTitle}>Olgagram!</Text>
+      </Text>
       <Text style={styles.Subtitle}>Enter your data to start chatting</Text>
-      <Image source={require('../../img/login.png')} style={styles.Image}/>
-      {isAuthenticationFailed && <Text style={styles.TextError}>Please, provide your valid information.</Text>}
+      <Image source={require('../../img/login.png')} style={styles.Image} />
+      {isAuthenticationFailed && (
+        <Text style={styles.TextError}>
+          Please, provide your valid information.
+        </Text>
+      )}
       <View style={styles.Form}>
         <TextInput
           editable={!isLoading}
@@ -26,11 +49,19 @@ const AuthenticationScreen = ({isAuthenticationFailed, onAuthenticationInputChan
           style={styles.Input}
           onChange={onAuthenticationInputChange('password')}
         />
-        <TouchableOpacity style={styles.Submit} onPress={onAuthenticationSubmit}>
+        <TouchableOpacity
+          style={styles.Submit}
+          onPress={onAuthenticationSubmit}>
           <Text style={styles.SubmitText}>Start messaging</Text>
         </TouchableOpacity>
       </View>
-      {isLoading && <ActivityIndicator style={styles.ActivityIndicatorStyle} size="large" color="#522c86"/>}
+      {isLoading && (
+        <ActivityIndicator
+          style={styles.ActivityIndicatorStyle}
+          size="large"
+          color="#522c86"
+        />
+      )}
     </View>
   );
 };
@@ -39,7 +70,7 @@ export default AuthenticationScreen;
 
 const styles = StyleSheet.create({
   Form: {
-    position: 'relative'
+    position: 'relative',
   },
 
   PurpleTitle: {
@@ -57,7 +88,7 @@ const styles = StyleSheet.create({
   },
 
   ActivityIndicatorStyle: {
-    marginTop: 20
+    marginTop: 20,
   },
 
   InputError: {
@@ -99,7 +130,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     color: '#8d8d8d',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 
   TextError: {
@@ -107,7 +138,7 @@ const styles = StyleSheet.create({
     top: 450,
     color: 'red',
     alignSelf: 'center',
-    position: 'absolute'
+    position: 'absolute',
   },
 
   View: {
@@ -122,7 +153,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: 'center',
     borderRadius: 8,
-    backgroundColor: '#522c86'
+    backgroundColor: '#522c86',
   },
 
   SubmitText: {
@@ -130,6 +161,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     letterSpacing: 0.7,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 });

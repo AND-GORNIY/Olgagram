@@ -1,6 +1,6 @@
 const initialState = {
   isLoading: false,
-  users: []
+  users: [],
 };
 
 export const usersReducer = (state = initialState, action) => {
@@ -8,7 +8,7 @@ export const usersReducer = (state = initialState, action) => {
     case 'FETCH_USERS_REQUEST':
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
 
     case 'FETCH_USERS_SUCCESS':
@@ -22,7 +22,7 @@ export const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        err: action.err
+        err: action.err,
       };
 
     default:

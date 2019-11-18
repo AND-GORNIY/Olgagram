@@ -9,9 +9,13 @@ export const authenticate = (phone: string, password: string) => (
 
   return authenticationService(phone, password)
     .then(() => {
-        dispatch({
-          type: 'AUTHENTICATION_STATUS_SUCCESS',
-        });
+      dispatch({
+        type: 'AUTHENTICATION_STATUS_SUCCESS',
+        payload: {
+          phone,
+          password,
+        },
+      });
     })
 
     .catch(err => {

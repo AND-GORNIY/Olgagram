@@ -2,17 +2,24 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 const Message = ({author, text, time, userName, sender}) => {
-  const getMessageStyles = userName !== sender ?  styles.MessageBox: [styles.MessageBox, styles.MessageBoxUser];
-  const getTimeStyles = userName !== sender ?  styles.Time: [styles.Time, styles.TimeUser];
-  const getTextStyles = userName !== sender ?  styles.Text: [styles.Text, styles.TextUser];
+  const getMessageStyles =
+    userName !== sender
+      ? styles.MessageBox
+      : [styles.MessageBox, styles.MessageBoxUser];
+  const getTimeStyles =
+    userName !== sender ? styles.Time : [styles.Time, styles.TimeUser];
+  const getTextStyles =
+    userName !== sender ? styles.Text : [styles.Text, styles.TextUser];
 
   return (
     <View style={getMessageStyles}>
-      <View style={getTextStyles}><Text>{text}</Text></View>
+      <View style={getTextStyles}>
+        <Text>{text}</Text>
+      </View>
       <Text style={getTimeStyles}>{time}</Text>
       <Text>{author}</Text>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -42,13 +49,13 @@ const styles = StyleSheet.create({
 
   Time: {
     alignSelf: 'flex-end',
-    marginLeft: 10
+    marginLeft: 10,
   },
 
   TimeUser: {
     alignSelf: 'flex-end',
-    marginRight: 10
-  }
+    marginRight: 10,
+  },
 });
 
 export default Message;

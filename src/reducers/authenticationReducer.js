@@ -23,7 +23,7 @@ export const authenticationReducer = (
       return {
         ...state,
         isLoading: true,
-        requestStatus: 'request'
+        requestStatus: 'request',
       };
 
     case 'AUTHENTICATION_STATUS_SUCCESS':
@@ -32,6 +32,8 @@ export const authenticationReducer = (
         isLoading: false,
         isAuthenticationFailed: false,
         requestStatus: 'success',
+        phone: action.payload.phone,
+        password: action.password.password,
       };
 
     case 'AUTHENTICATION_STATUS_FAILURE':
@@ -39,7 +41,7 @@ export const authenticationReducer = (
         ...state,
         isLoading: false,
         isAuthenticationFailed: true,
-        requestStatus: 'failure'
+        requestStatus: 'failure',
       };
 
     default:

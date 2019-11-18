@@ -1,15 +1,16 @@
 import fetchUsersService from '../services/fetchUsersService';
 
 export const fetchUsers = () => (dispatch, getState) => {
-  // if (getState().usersReducer.isLoading) {
-  //   return;
-  // }
+  if (getState().usersReducer.isLoading) {
+    return;
+  }
+
   dispatch({type: 'FETCH_USERS_REQUEST'});
   fetchUsersService()
     .then(({users}) => {
       dispatch({
         type: 'FETCH_USERS_SUCCESS',
-        users: users
+        users: users,
       });
     })
     .catch(err => {

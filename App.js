@@ -11,10 +11,10 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import AuthenticationScreen from './src/screens/AuthenticationScreen';
-import ChatsListScreen from "./src/screens/ChatsListScreen";
-import PersonalChatScreen from "./src/screens/PersonalChatScreen";
-import ProfileScreen from "./src/screens/ProfileScreen";
-import ContactsScreen from "./src/screens/ContactsScreen/ContactsScreen";
+import ChatsListScreen from './src/screens/ChatsListScreen';
+import PersonalChatScreen from './src/screens/PersonalChatScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import ContactsScreen from './src/screens/ContactsScreen/ContactsScreen';
 
 const RootStack = createStackNavigator(
   {
